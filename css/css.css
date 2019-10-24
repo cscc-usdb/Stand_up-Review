@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.title {
+  width: 100vw;
+  height: 90px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  /* grid-gap: 10px; */
+  width: 100vw;
+  height: 100vh;
+}
+
+.zero {
+  border-style: solid;
+  border-color: blue;
+  grid-column: 1 / 4;
+  grid-row: 1;
+  /* height: 10vh; */
+}
+
+.one {
+  border-style: solid;
+  border-color: blue;
+  grid-column: 1 / 2;
+  grid-row: 2;
+}
+.two {
+  border-style: solid;
+  border-color: yellow;
+  grid-column: 2 / 3;
+  grid-row: 2;
+}
+.three {
+  border-style: solid;
+  border-color: violet;
+  grid-column: 3 / 4;
+  grid-row: 2;
+}
+.four {
+  border-style: solid;
+  border-color: aqua;
+  grid-column: 1 / 2;
+  grid-row: 3;
+}
+.five {
+  border-style: solid;
+  border-color: green;
+  grid-column: 2 / 3;
+  grid-row: 3;
+}
+.six {
+  border-style: solid;
+  border-color: purple;
+  grid-column: 3;
+  grid-row: 3;
+}
+.seven {
+  border-style: solid;
+  border-color: aqua;
+  grid-column: 1 / 2;
+  grid-row: 4;
+}
+.eight {
+  border-style: solid;
+  border-color: green;
+  grid-column: 2 / 3;
+  grid-row: 4;
+}
+.nine {
+  border-style: solid;
+  border-color: purple;
+  grid-column: 3;
+  grid-row: 4;
+}
