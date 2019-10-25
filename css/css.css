@@ -13,12 +13,30 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  /* grid-gap: 10px; */
+  grid-gap: 5px;
   width: 100vw;
   height: 100vh;
+  align-items: center;
+  justify-items: center;
+  padding: 5px;
+  overflow: hidden;
+}
+/*template*/
+:root {
+  --color-1: rgba(48, 57, 82, 1);
+  --color-2: rgba(230, 103, 103, 1);
+  --color-3: rgba(61, 193, 211, 1);
+  --color-4: rgba(247, 143, 179, 1);
+  --color-5: rgba(87, 75, 144, 1);
+  --color-6: rgba(241, 144, 102, 1);
+  --color-7: rgba(245, 205, 121, 1);
+  --color-8: rgba(225, 95, 65, 1);
+  --color-9: rgba(119, 139, 235, 1);
 }
 
+/**========================grids ========================**/
 .zero {
+  display: grid;
   border-style: solid;
   border-color: blue;
   grid-column: 1 / 4;
@@ -27,56 +45,161 @@
 }
 
 .one {
-  border-style: solid;
-  border-color: blue;
   grid-column: 1 / 2;
   grid-row: 2;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-1);
 }
 .two {
-  border-style: solid;
-  border-color: yellow;
   grid-column: 2 / 3;
   grid-row: 2;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-2);
 }
 .three {
-  border-style: solid;
-  border-color: violet;
   grid-column: 3 / 4;
   grid-row: 2;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-3);
 }
 .four {
-  border-style: solid;
-  border-color: aqua;
+  grid-column: 1 / 2;
   grid-column: 1 / 2;
   grid-row: 3;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-4);
 }
 .five {
-  border-style: solid;
-  border-color: green;
   grid-column: 2 / 3;
   grid-row: 3;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-5);
 }
 .six {
-  border-style: solid;
-  border-color: purple;
   grid-column: 3;
   grid-row: 3;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-6);
 }
 .seven {
-  border-style: solid;
-  border-color: aqua;
   grid-column: 1 / 2;
   grid-row: 4;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-7);
 }
 .eight {
-  border-style: solid;
-  border-color: green;
   grid-column: 2 / 3;
   grid-row: 4;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-8);
 }
 .nine {
-  border-style: solid;
-  border-color: purple;
   grid-column: 3;
   grid-row: 4;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-9);
+}
+
+/**======================== grids content ========================**/
+
+.box {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+i {
+  font-size: 60px !important;
+  color: white !important;
+}
+
+h3 {
+  position: absolute;
+  right: 20%;
+  font-size: 40px;
+}
+
+/**======================== txt color ========================**/
+
+.one h3 {
+  color: var(--color-1);
+}
+.two h3 {
+  color: var(--color-2);
+}
+.three h3 {
+  color: var(--color-3);
+}
+.four h3 {
+  color: var(--color-4);
+}
+.five h3 {
+  color: var(--color-5);
+}
+.six h3 {
+  color: var(--color-6);
+}
+.seven h3 {
+  color: var(--color-7);
+}
+.eight h3 {
+  color: var(--color-8);
+}
+.nine h3 {
+  color: var(--color-9);
+}
+
+/**======================== animation ========================**/
+
+.have-animation {
+  transition: 0.2s linear;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2%;
+}
+
+.have-animation:hover {
+  overflow: hidden;
+}
+.have-animation::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-color: #fff;
+  transform: rotate(45deg);
+  left: -130%;
+  top: 90%;
+}
+
+.have-animation:hover::before {
+  animation: aaa 0.7s 1;
+  top: -10%;
+  left: -10%;
+}
+@keyframes aaa {
+  0% {
+    left: -110%;
+    top: 90%;
+  }
+  50% {
+    left: 10%;
+    top: -30%;
+  }
+  100% {
+    top: -10%;
+    left: -10%;
+  }
 }
