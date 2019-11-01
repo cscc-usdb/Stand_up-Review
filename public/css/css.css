@@ -152,13 +152,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: inherit;
-
-  /*  
-  background-color: rgba(52, 152, 219,1.0);
-  
-  padding: 20px;
-  background-color: antiquewhite;
-*/
 }
 
 .box {
@@ -324,7 +317,7 @@ i {
   border-radius: 50%;
   align-self: center;
   left: 50%;
-  border:3px solid var(--color-5);
+  border: 3px solid var(--color-5);
 }
 .container i {
   color: var(--color-2) !important;
@@ -337,7 +330,6 @@ i {
   justify-content: center;
   flex-direction: column;
   padding: 30px;
-
 }
 
 .container .left-wraper img {
@@ -345,14 +337,13 @@ i {
   height: 100px;
 }
 
-.container .left-wraper  club-title {
-  margin-top:30px ;
+.container .left-wraper club-title {
+  margin-top: 30px;
 }
 .container .left-wraper {
   color: var(--color-5);
   font-family: "Poppins", sans-serif;
 }
-
 
 .container .right-wraper {
   display: flex;
@@ -361,13 +352,12 @@ i {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
 }
 
 textarea {
   width: 30vw;
   height: 30vh;
-  background-color:;
+  background-color: ;
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
   font-weight: 200;
@@ -375,7 +365,7 @@ textarea {
   border-color: var(--color-5);
   padding: 10px;
   outline: none !important;
-  border:1px solid var(--color-5);
+  border: 1px solid var(--color-5);
 }
 
 button {
@@ -394,7 +384,6 @@ button {
   transition-duration: 0.4s;
   cursor: pointer;
   font-family: "Poppins", sans-serif;
-  
 }
 
 .button1 {
@@ -423,6 +412,5 @@ button {
   flex-direction: column;
   padding: 10px;
   border-radius: 2%;
-  box-shadow: 0 0 10px #719ECE;
-
+  box-shadow: 0 0 10px #719ece;
 }
