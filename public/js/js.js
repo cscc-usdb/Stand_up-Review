@@ -47,11 +47,12 @@ const SubmiteReviewToDatabase = (review) => {
         })
         .then(() => {
             alert("thank you !")
-            window.location.href = `../../index.html`;
         })
         .catch(err => {
+            // alert("something went wrong !!")
             console.log(err);
         });
+    window.location.href = `../../index.html`;
 }
 
 
