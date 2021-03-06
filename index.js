@@ -2,25 +2,26 @@ const express = require('express')
 const bodyParser = require("body-parser");
 const cors = require('cors')
 const app = express()
-const sqlite3 = require('sqlite3').verbose();
 
-let db = new sqlite3.Database(':memory:');
+// if you update the port make sure to update the frontend fetch fetch point
+const port = 3000
 
+const { createWorkTable, closeConnection, addVote } =require('./Database/databaseClient')
 
 app.use(cors())
-app.use(bodyParser.json())
+
+app.use(bodyParser());
 app.use(bodyParser.urlencoded({ extended: false }));
-var config = require("./Database/dbConfig.json");
+app.use(bodyParser.json())
 
+createWorkTable()
 
-app.get('/add/:best_design_stand/:best_presentation_stand/:message', (req, res) => {
-
-    connection.query(`INSERT INTO reviews (best_design_stand,best_presentation_stand,message) VALUES (?,?,?)`,
-        [req.params.best_design_stand, req.params.best_presentation_stand, req.params.message], function (error, results, fields) {
-            if (error) { throw error; connection.release(); }
-            res.send({ status: 200, message: "message submite" })
-        });
-
+app.post('/vote', (req, res) => {
+    addVote(req.body.bestDesignStand, req.body.bestPresentationStand, req.body.message)
+    res.status(200).json({ success: true, message: 'vote added successfully !' })
 })
 
-app.listen(3000)
+closeConnection()
+app.listen(port, () => {
+    console.log(`App Running on PORT - ${port}`)
+})
