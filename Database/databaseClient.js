@@ -16,8 +16,14 @@ function createWorkTable() {
     })
 }
 
-function addVote(bestDesignStand, bestPresentationStand, message) {
-  console.log(bestDesignStand, bestPresentationStand, message)
+async function addVote(bestDesignStand, bestPresentationStand, message) {
+  db.run(`INSERT INTO reviews(best_design_stand,best_presentation_stand,message)
+  VALUES(?,?,?)`, [bestDesignStand, bestPresentationStand, message], (err) => {
+    if (err) {
+      return false
+    }
+    console.log(`done !`)
+  })
 }
 
 
