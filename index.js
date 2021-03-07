@@ -16,12 +16,11 @@ app.use(bodyParser.json())
 
 createWorkTable()
 
-app.post('/vote', (req, res) => {
-    addVote(req.body.bestDesignStand, req.body.bestPresentationStand, req.body.message)
-    res.status(200).json({ success: true, message: 'vote added successfully !' })
+app.post('/vote',async (req, res) => {
+    await addVote(req.body.bestDesignStand, req.body.bestPresentationStand, req.body.message, res)
 })
 
-closeConnection()
+// closeConnection()
 app.listen(port, () => {
     console.log(`App Running on PORT - ${port}`)
 })
