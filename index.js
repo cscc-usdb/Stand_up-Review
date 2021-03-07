@@ -1,32 +1,31 @@
 const express = require('express')
 const bodyParser = require("body-parser");
-const cors = require('cors')
-const app = express()
+const open = require('opn');
+const cors = require('cors');
+const app = express();
 
 
+// if you update the port make sure to update the frontend fetch fetch point
+const port = 3000
+
+const { createWorkTable, closeConnection, addVote } =require('./Database/databaseClient')
 
 app.use(cors())
-app.use(bodyParser.json())
+
+app.use(bodyParser());
 app.use(bodyParser.urlencoded({ extended: false }));
-var mysql = require("mysql");
-var config = require("./Database/dbConfig.json");
+app.use(bodyParser.json())
+app.use(express.static('public'))
+createWorkTable()
 
-var connection = mysql.createConnection({
-    host: config.dbhost,
-    user: config.dbuser,
-    password: config.dbpassword,
-    database: config.dbname
-});
-
-connection.connect();
-app.get('/add/:best_design_stand/:best_presentation_stand/:message', (req, res) => {
-
-    connection.query(`INSERT INTO reviews (best_design_stand,best_presentation_stand,message) VALUES (?,?,?)`,
-        [req.params.best_design_stand, req.params.best_presentation_stand, req.params.message], function (error, results, fields) {
-            if (error) { throw error; connection.release(); }
-            res.send({ status: 200, message: "message submite" })
-        });
-
+app.post('/vote',async (req, res) => {
+    await addVote(req.body.bestDesignStand, req.body.bestPresentationStand, req.body.message, res)
 })
 
-app.listen(3000)
+// closeConnection()
+app.listen(port, () => {
+    const linkToApp = `http://localhost:${port}`
+    console.log(`Server - ${port}\nClient - ${linkToApp}
+    `)
+    open(linkToApp);
+})

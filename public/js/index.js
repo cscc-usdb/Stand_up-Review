@@ -2,8 +2,8 @@ const app = () => {
 
     const standsName = ["Design", "Formation", "l'accueil", "Security", "Coding", "Robotics", "Events", "Startup"];
 
-    const standsD = document.querySelectorAll(".have-animation.page1");
-    const standsP = document.querySelectorAll(".have-animation.page2");
+    const standsD = document.querySelectorAll(".have-animation-page1");
+    const standsP = document.querySelectorAll(".have-animation-page2");
 
 
     //add event listner for all cards 
@@ -21,8 +21,8 @@ const app = () => {
     });
 
 
-
-    document.getElementById('button1').addEventListener("click", () => {
+    const submitButton = document.getElementById('button1')
+    submitButton.addEventListener("click", () => {
         const reviewTxt = document.getElementById('txt-area').value;
 
         //get params
@@ -41,17 +41,25 @@ const app = () => {
 
 const SubmiteReviewToDatabase = (review) => {
 
-    fetch(`http://localhost:3000/add/${review.best_design_stand}/${review.best_presentation_stand}/${review.message}`)
-        .then(res => {
-            res.json()
+
+    console.log(review)
+    fetch('http://localhost:3000/vote', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify({ 
+            "bestDesignStand": review.best_design_stand,
+            "bestPresentationStand": review.best_presentation_stand,
+            "message": review.message
         })
-        .then(() => {
-            alert("thank you !")
-        })
-        .catch(err => {
-            // alert("something went wrong !!")
-            console.log(err);
-        });
+    })
+    .then(() => {
+        alert("thank you !")
+    })
+    .catch(err => {
+        console.log(err);
+    });
     window.location.href = `../../index.html`;
 }
 
