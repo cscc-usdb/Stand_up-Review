@@ -25,8 +25,7 @@ app.post('/vote',async (req, res) => {
 // closeConnection()
 app.listen(port, () => {
     const linkToApp = `http://localhost:${port}`
-    console.log(`Running on PORT - ${port}
-    App on - ${linkToApp}
+    console.log(`Server - ${port}\nClient - ${linkToApp}
     `)
     open(linkToApp);
 })
